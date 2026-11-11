@@ -92,7 +92,7 @@ function ReceiptFlow() {
   );
 
   return (
-    <div className="space-y-5 p-4">
+    <div className="min-h-[calc(100vh-6rem)] space-y-5 bg-white p-4 text-gray-800">
       <header>
         <h1 className="text-2xl font-extrabold text-gray-900">Receipt Pink Tax audit</h1>
         <p className="mt-1 text-sm text-gray-600">See what you may have paid extra on your last shop.</p>
