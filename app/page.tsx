@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import demo from '@/data/demo.json';
 import type { Comparison } from '@/lib/types';
 import ResultCard from '@/components/ResultCard';
+import CallItOut from '@/components/extras/CallItOut';
 import Loading from '@/components/Loading';
 import IntroSplash from '@/components/IntroSplash';
 
@@ -101,6 +102,7 @@ export default function SearchPage() {
       {result && (
         <div ref={resultRef} className="scroll-mt-4 space-y-4">
           <ResultCard comparison={result} />
+          {result.label === 'High' && <CallItOut comparison={result} />}
           <button
             onClick={() => {
               setResult(null);

@@ -6,6 +6,7 @@ const TABS = [
   { href: '/', label: 'Search' },
   { href: '/scan', label: 'Scan' },
   { href: '/receipt', label: 'Receipt' },
+  { href: '/community', label: 'Community' },
 ];
 
 export default function TabBar() {
@@ -18,7 +19,7 @@ export default function TabBar() {
           <Link
             key={t.href}
             href={t.href}
-            className={`flex-1 py-4 text-center text-sm font-medium ${
+            className={`flex-1 py-4 text-center text-xs font-medium sm:text-sm ${
               active ? 'text-pink-600' : 'text-gray-500'
             }`}
           >

@@ -36,8 +36,10 @@ Implemented in /api/compare per step 1 above.
 ## Requests to Device B
 - Import `components/ResultCard` (props `{ comparison, compact? }`, unchanged). Call POST /api/compare with `source: 'receipt'` products.
 - Please confirm the reconstructed ReceiptItem tail in CHANGELOG-contract.md.
-- Put CallItOut in components/extras/CallItOut.tsx (A renders it under High results in A-8).
+- Put CallItOut in components/extras/CallItOut.tsx (A renders it under High results in A-8). Done: A renders it on Search and Scan.
+- Receipt summary: items with a reverse gap (the women's version is cheaper) are labelled "no gap". Please show "cheaper than the alternative" instead, so reverse gaps are shown honestly.
 
 ## Requests to Device A
 - (resolved by A in 0bd03fe) globals.css dark mode.
+- (resolved by A) Community tab added to the tab bar; CallItOut rendered under High results on Search and Scan.
 - Receipt page: sample receipt is built from data/demo.json in lib/receipt/sample.ts (no image needed).

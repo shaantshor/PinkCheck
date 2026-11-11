@@ -5,6 +5,7 @@ import demo from '@/data/demo.json';
 import type { Comparison, Product } from '@/lib/types';
 import { fileOrCanvasToJpegBase64 } from '@/lib/image';
 import ResultCard from '@/components/ResultCard';
+import CallItOut from '@/components/extras/CallItOut';
 import Loading from '@/components/Loading';
 
 const SAMPLE_NAME: string =
@@ -256,6 +257,7 @@ export default function ScanPage() {
           <h2 className="anim-fade-up text-xl font-extrabold text-gray-900">Cheaper alternatives</h2>
           {isSample && <p className="text-xs text-amber-700">Sample product, not read from a photo.</p>}
           <ResultCard comparison={result} />
+          {result.label === 'High' && <CallItOut comparison={result} />}
           <button onClick={reset} className="press min-h-12 w-full rounded-xl border border-pink-200 text-pink-700">
             Scan another product
           </button>
