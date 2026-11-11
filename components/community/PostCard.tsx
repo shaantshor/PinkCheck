@@ -44,7 +44,7 @@ export default function PostCard({ post, index }: { post: PostView; index: numbe
         <Link
           href={`/community/${post.id}`}
           className="press inline-flex min-h-11 items-center gap-1.5 rounded-full bg-gray-50 px-3 text-sm font-medium text-gray-700"
-          aria-label={`${post.commentCount} comments`}
+          aria-label={`${post.commentCount} comment${post.commentCount === 1 ? '' : 's'}`}
         >
           <CommentIcon />
           {post.commentCount}
