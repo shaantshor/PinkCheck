@@ -64,7 +64,7 @@ export default function SearchPage() {
         </button>
       </form>
 
-      {chips.length > 0 && (
+      {chips.length > 0 && !result && !loading && (
         <div className="flex flex-wrap gap-2">
           {chips.map((c) => (
             <button
@@ -83,7 +83,20 @@ export default function SearchPage() {
 
       {loading && <Loading />}
       {error && <p className="rounded-xl bg-rose-50 p-3 text-sm text-rose-700">{error}</p>}
-      {result && <ResultCard comparison={result} />}
+      {result && (
+        <>
+          <ResultCard comparison={result} />
+          <button
+            onClick={() => {
+              setResult(null);
+              setQ('');
+            }}
+            className="min-h-12 w-full rounded-xl border border-pink-200 text-pink-700"
+          >
+            Check another product
+          </button>
+        </>
+      )}
     </div>
   );
 }

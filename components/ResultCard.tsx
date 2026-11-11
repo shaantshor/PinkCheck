@@ -7,8 +7,10 @@ import ScoreGauge from './ScoreGauge';
 function unitLabel(p: Product) {
   const u = unitPrice(p);
   if (u === null || !p.unit) return null;
+  // ml and g are shown per 100 so the number is readable; razors and items per item.
+  if (p.unit === 'ml' || p.unit === 'g') return { big: '£' + (u * 100).toFixed(2), per: `per 100 ${p.unit}` };
   const per = p.unit === 'item' ? 'item' : p.unit;
-  return `${u < 1 ? (u * 100).toFixed(1) + 'p' : '£' + u.toFixed(2)} per ${per}`;
+  return { big: u < 1 ? (u * 100).toFixed(1) + 'p' : '£' + u.toFixed(2), per: `per ${per}` };
 }
 
 function SourceLine({ p }: { p: Product }) {
@@ -42,7 +44,14 @@ function Side({ p, title, strong }: { p: Product; title: string; strong?: boolea
       <div className="text-xs font-medium uppercase text-gray-500">{title}</div>
       <div className="mt-1 text-sm font-semibold leading-tight">{p.name}</div>
       <div className="text-xs text-gray-500">{[p.brand, p.retailer].filter(Boolean).join(' · ')}</div>
-      <div className="mt-2 text-2xl font-extrabold text-gray-900">{ul ?? 'price not found'}</div>
+      {ul ? (
+        <div className="mt-2">
+          <span className="text-3xl font-extrabold text-gray-900">{ul.big}</span>
+          <div className="text-sm font-medium text-gray-600">{ul.per}</div>
+        </div>
+      ) : (
+        <div className="mt-2 text-lg font-bold text-gray-500">price not found</div>
+      )}
       <div className="text-xs text-gray-600">
         {p.price_gbp != null ? `£${p.price_gbp.toFixed(2)}` : ''}
         {p.quantity != null && p.unit ? ` · ${p.quantity} ${p.unit}` : ''}
