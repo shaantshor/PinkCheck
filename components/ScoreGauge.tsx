@@ -1,3 +1,5 @@
+'use client';
+import { useEffect, useState } from 'react';
 import type { Comparison } from '@/lib/types';
 
 export function toneFor(label: Comparison['label']) {
@@ -17,7 +19,27 @@ export default function ScoreGauge({ score, label }: { score: number | null; lab
   const tone = toneFor(label);
   const r = 34;
   const c = 2 * Math.PI * r;
-  const pct = score ?? 0;
+  const target = score ?? 0;
+  const [shown, setShown] = useState(0);
+
+  // Count up and fill the ring on mount. Respects reduced motion.
+  useEffect(() => {
+    const reduce = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) {
+      setShown(target);
+      return;
+    }
+    let raf = 0;
+    const t0 = performance.now();
+    const tick = (t: number) => {
+      const p = Math.min(1, (t - t0) / 1100);
+      setShown(Math.round(target * (1 - Math.pow(1 - p, 3))));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [target]);
+
   return (
     <div className="flex items-center gap-3">
       <svg width="84" height="84" viewBox="0 0 84 84" aria-hidden>
@@ -30,16 +52,19 @@ export default function ScoreGauge({ score, label }: { score: number | null; lab
           stroke={tone.stroke}
           strokeWidth="8"
           strokeLinecap="round"
-          strokeDasharray={`${(pct / 100) * c} ${c}`}
+          strokeDasharray={`${(shown / 100) * c} ${c}`}
           transform="rotate(-90 42 42)"
         />
         <text x="42" y="48" textAnchor="middle" className="fill-gray-800" fontSize="22" fontWeight="700">
-          {score ?? '–'}
+          {score === null ? '–' : shown}
         </text>
       </svg>
       <div>
         <div className="text-xs uppercase tracking-wide text-gray-500">Pink Tax Score</div>
-        <div className={`text-xl font-bold ${tone.text}`}>{label}</div>
+        <div className={`anim-pop text-xl font-bold ${tone.text}`} style={{ animationDelay: '0.3s' }}>
+          {label}
+        </div>
+        <span className="sr-only">Score {score ?? 'not available'} out of 100</span>
       </div>
     </div>
   );

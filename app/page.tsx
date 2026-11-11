@@ -1,9 +1,10 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import demo from '@/data/demo.json';
 import type { Comparison } from '@/lib/types';
 import ResultCard from '@/components/ResultCard';
 import Loading from '@/components/Loading';
+import IntroSplash from '@/components/IntroSplash';
 
 const chips: string[] = (demo as { products: { name: string }[] }[])
   .map((pair) => pair.products[0]?.name)
@@ -15,6 +16,11 @@ export default function SearchPage() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<Comparison | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (result) resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [result]);
 
   async function run(name: string) {
     if (!name.trim()) return;
@@ -38,9 +44,13 @@ export default function SearchPage() {
 
   return (
     <div className="space-y-4 p-4">
-      <header>
+      <IntroSplash />
+      <header className="anim-fade-up rounded-3xl bg-gradient-to-br from-pink-100 via-pink-50 to-white p-5">
         <h1 className="text-2xl font-extrabold text-pink-600">PinkCheck</h1>
-        <p className="text-sm text-gray-600">Find out if you may be paying more, and what to buy instead.</p>
+        <p className="mt-1 text-base font-semibold text-gray-900">Am I paying a Pink Tax?</p>
+        <p className="mt-1 text-sm text-gray-600">
+          Search a product to see the price per unit against a like for like swap.
+        </p>
       </header>
       <form
         onSubmit={(e) => {
@@ -58,44 +68,49 @@ export default function SearchPage() {
         <button
           type="submit"
           disabled={loading}
-          className="min-h-12 rounded-xl bg-pink-600 px-4 font-semibold text-white disabled:opacity-50"
+          className="press min-h-12 rounded-xl bg-pink-600 px-4 font-semibold text-white disabled:opacity-50"
         >
           Check
         </button>
       </form>
 
       {chips.length > 0 && !result && !loading && (
-        <div className="flex flex-wrap gap-2">
-          {chips.map((c) => (
+        <div className="space-y-2">
+          <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">Try one</p>
+          <div className="flex flex-wrap gap-2">
+          {chips.map((c, i) => (
             <button
               key={c}
+              style={{ animationDelay: `${0.15 + i * 0.07}s` }}
               onClick={() => {
                 setQ(c);
                 run(c);
               }}
-              className="rounded-full bg-pink-50 px-3 py-2 text-sm text-pink-700"
+              className="anim-pop press rounded-full bg-pink-50 px-3 py-2 text-sm text-pink-700"
             >
               {c}
             </button>
           ))}
+          </div>
+          <p className="text-xs text-gray-500">Prices read from Superdrug product pages on 11 Nov 2026.</p>
         </div>
       )}
 
       {loading && <Loading />}
       {error && <p className="rounded-xl bg-rose-50 p-3 text-sm text-rose-700">{error}</p>}
       {result && (
-        <>
+        <div ref={resultRef} className="scroll-mt-4 space-y-4">
           <ResultCard comparison={result} />
           <button
             onClick={() => {
               setResult(null);
               setQ('');
             }}
-            className="min-h-12 w-full rounded-xl border border-pink-200 text-pink-700"
+            className="press min-h-12 w-full rounded-xl border border-pink-200 text-pink-700"
           >
             Check another product
           </button>
-        </>
+        </div>
       )}
     </div>
   );

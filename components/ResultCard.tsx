@@ -71,14 +71,14 @@ export default function ResultCard({
   compact?: boolean;
 }) {
   const { target, best, alternatives, label, score, explanation, live, savings_per_pack } = comparison;
-  const more = alternatives.filter((a) => a !== best).slice(0, 2);
+  const more = alternatives.filter((a) => !best || a.name !== best.name || a.retailer !== best.retailer).slice(0, 2);
 
   return (
-    <div className="rounded-2xl border border-pink-100 bg-white p-4 shadow-sm">
+    <div className="anim-fade-up rounded-2xl border border-pink-100 bg-white p-4 shadow-sm">
       <ScoreGauge score={score} label={label} />
 
       {label === 'Reverse gap' && (
-        <p className="mt-3 rounded-xl bg-green-50 p-3 text-sm font-semibold text-green-700">
+        <p className="anim-pop mt-3 rounded-xl bg-green-50 p-3 text-sm font-semibold text-green-700" style={{ animationDelay: '0.4s' }}>
           Good news: the women&apos;s version is cheaper here
         </p>
       )}
@@ -89,22 +89,29 @@ export default function ResultCard({
       )}
 
       {best && label !== 'Not enough data' && (
-        <div className="mt-3 flex gap-2">
+        <div className="anim-fade-up mt-3 flex gap-2" style={{ animationDelay: '0.15s' }}>
           <Side p={target} title="Your product" />
           <Side p={best} title="Equivalent" strong />
         </div>
       )}
 
       {savings_per_pack !== null && savings_per_pack > 0 && (
-        <p className="mt-3 inline-block rounded-full bg-pink-100 px-3 py-1 text-sm font-bold text-pink-700">
+        <p
+          className="anim-pop mt-3 inline-block rounded-full bg-pink-100 px-3 py-1 text-sm font-bold text-pink-700"
+          style={{ animationDelay: '0.6s' }}
+        >
           You could save about £{savings_per_pack.toFixed(2)} per pack
         </p>
       )}
 
       {comparison.equivalence_reasons.length > 0 && (
         <div className="mt-3 flex flex-wrap gap-2">
-          {comparison.equivalence_reasons.map((r) => (
-            <span key={r} className="rounded-full bg-gray-100 px-2.5 py-1 text-xs text-gray-700">
+          {comparison.equivalence_reasons.map((r, i) => (
+            <span
+              key={r}
+              className="anim-pop rounded-full bg-gray-100 px-2.5 py-1 text-xs text-gray-700"
+              style={{ animationDelay: `${0.7 + i * 0.1}s` }}
+            >
               {r}
             </span>
           ))}
