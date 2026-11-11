@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { fileOrCanvasToJpegBase64 } from '@/lib/image';
 import { compareItems, type CheckResult } from '@/lib/receipt/compareClient';
 import { toRows, type ReceiptRead, type ReceiptRow } from '@/lib/receipt/rows';
+import { sampleReceipt } from '@/lib/receipt/sample';
 import ItemsTable from '@/components/receipt/ItemsTable';
 import ProgressList from '@/components/receipt/ProgressList';
 import SummaryCard from '@/components/receipt/SummaryCard';
@@ -14,16 +15,18 @@ import { summarise } from '@/lib/receipt/totals';
 type Stage = 'idle' | 'reading' | 'review' | 'checking' | 'done' | 'error';
 
 const ERR = 'Try a flatter, brighter photo';
-const SAMPLE_FILES = ['/sample-receipt.jpg', '/sample-receipt.jpeg', '/sample-receipt.png'];
 
 function ReceiptFlow() {
-  const sample = useSearchParams().get('sample') === '1';
-  const [stage, setStage] = useState<Stage>('idle');
+  const sampleParam = useSearchParams().get('sample') === '1';
+  const [isSample, setIsSample] = useState(sampleParam);
+  const [stage, setStage] = useState<Stage>(sampleParam ? 'review' : 'idle');
   const [preview, setPreview] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [rows, setRows] = useState<ReceiptRow[]>([]);
-  const [store, setStore] = useState<string | null>(null);
-  const [receiptTotal, setReceiptTotal] = useState<number | null>(null);
+  const [rows, setRows] = useState<ReceiptRow[]>(() => (sampleParam ? toRows(sampleReceipt()) : []));
+  const [store, setStore] = useState<string | null>(() => (sampleParam ? sampleReceipt().store : null));
+  const [receiptTotal, setReceiptTotal] = useState<number | null>(() =>
+    sampleParam ? sampleReceipt().receipt_total : null,
+  );
   const [results, setResults] = useState<CheckResult[]>([]);
   const [trips, setTrips] = useState(12);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -32,6 +35,7 @@ function ReceiptFlow() {
 
   async function readReceipt(file: Blob) {
     setError(null);
+    setIsSample(false);
     setStage('reading');
     setPreview(URL.createObjectURL(file));
     try {
@@ -54,19 +58,16 @@ function ReceiptFlow() {
     }
   }
 
-  async function loadSample() {
-    for (const url of SAMPLE_FILES) {
-      try {
-        const res = await fetch(url);
-        if (res.ok && (res.headers.get('content-type') ?? '').startsWith('image/')) {
-          return readReceipt(await res.blob());
-        }
-      } catch {
-        /* try next */
-      }
-    }
-    setError('The sample receipt file is not available yet. Upload your own receipt instead.');
-    setStage('error');
+  function loadSample() {
+    const s = sampleReceipt();
+    setRows(toRows(s));
+    setStore(s.store);
+    setReceiptTotal(s.receipt_total);
+    setResults([]);
+    setPreview(null);
+    setError(null);
+    setIsSample(true);
+    setStage('review');
   }
 
   async function check() {
@@ -78,6 +79,7 @@ function ReceiptFlow() {
 
   const reset = () => {
     setStage('idle');
+    setIsSample(false);
     setRows([]);
     setResults([]);
     setPreview(null);
@@ -97,10 +99,6 @@ function ReceiptFlow() {
         <h1 className="text-2xl font-extrabold text-gray-900">Receipt Pink Tax audit</h1>
         <p className="mt-1 text-sm text-gray-600">See what you may have paid extra on your last shop.</p>
       </header>
-
-      {sample && stage === 'idle' && (
-        <p className="rounded-xl bg-amber-50 p-3 text-sm font-semibold text-amber-800">Sample receipt</p>
-      )}
 
       {preview && stage !== 'idle' && (
         // eslint-disable-next-line @next/next/no-img-element
@@ -132,15 +130,13 @@ function ReceiptFlow() {
           >
             {stage === 'error' ? 'Try again with another photo' : 'Upload or photograph your receipt'}
           </label>
-          {sample && (
-            <button
-              type="button"
-              onClick={() => void loadSample()}
-              className="min-h-11 w-full rounded-xl border border-pink-300 px-4 text-sm font-semibold text-pink-700"
-            >
-              Use the sample receipt
-            </button>
-          )}
+          <button
+            type="button"
+            onClick={loadSample}
+            className="min-h-11 w-full rounded-xl border border-pink-300 px-4 text-sm font-semibold text-pink-700"
+          >
+            Try a sample receipt
+          </button>
           <p className="text-xs text-gray-500">
             Your photo is sent to be read and isn&apos;t stored. Nothing is saved on our side.
           </p>
@@ -156,7 +152,7 @@ function ReceiptFlow() {
 
       {stage === 'review' && (
         <>
-          <ItemsTable rows={rows} store={store} receiptTotal={receiptTotal} sample={sample} onChange={setRows} />
+          <ItemsTable rows={rows} store={store} receiptTotal={receiptTotal} sample={isSample} onChange={setRows} />
           <div className="sticky bottom-20 space-y-2 bg-white/90 py-2 backdrop-blur">
             <button
               type="button"

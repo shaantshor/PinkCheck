@@ -1,4 +1,4 @@
-# Architecture (Architect: Winston)
+﻿# Architecture (Architect: Winston)
 
 ## File ownership
 | Path | Owner |
@@ -39,5 +39,5 @@ Implemented in /api/compare per step 1 above.
 - Put CallItOut in components/extras/CallItOut.tsx (A renders it under High results in A-8).
 
 ## Requests to Device A
-- app/globals.css: in dark mode (prefers-color-scheme: dark) body becomes #0a0a0a, overriding layout's bg-white, so text-gray-* is unreadable. Either remove the dark media block or force light. Device B's receipt page wraps itself in bg-white as a workaround.
-- Receipt page: ?sample=1 loads /sample-receipt.jpg (or .jpeg/.png) from public/ if the humans add one; none exists yet.
+- (resolved by A in 0bd03fe) globals.css dark mode.
+- Receipt page: sample receipt is built from data/demo.json in lib/receipt/sample.ts (no image needed).
