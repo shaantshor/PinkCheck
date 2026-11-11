@@ -22,7 +22,7 @@ export default function PostDetail({ id }: { id: string }) {
     return (
       <div className="px-4 pt-4" aria-busy="true">
         <Back />
-        <div className="mt-3 animate-pulse space-y-3" aria-hidden="true">
+        <div className="mt-3 animate-pulse motion-reduce:animate-none space-y-3" aria-hidden="true">
           <div className="h-3 w-1/3 rounded bg-pink-100" />
           <div className="h-6 w-5/6 rounded bg-gray-200" />
           <div className="h-20 rounded bg-gray-100" />

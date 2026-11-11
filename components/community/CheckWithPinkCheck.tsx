@@ -59,7 +59,7 @@ export default function CheckWithPinkCheck({ productName }: { productName: strin
           </button>
           {state.s === 'loading' && (
             <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/30" aria-hidden="true">
-              <div className="h-full w-2/3 animate-pulse rounded-full bg-white" />
+              <div className="h-full w-2/3 animate-pulse motion-reduce:animate-none rounded-full bg-white" />
             </div>
           )}
           <p className="mt-2 text-xs text-pink-100" aria-live="polite">

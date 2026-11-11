@@ -24,3 +24,17 @@ Written from general knowledge of Reddit-style forums. No sources were fetched, 
 
 ## Why it helps the pitch
 A feed that looks alive, plus a tap on **Check this with PinkCheck** that pulls the same result card used in Search, shows that the community and the price engine work together.
+
+## How to use and demo it
+**Where:** open `/community` (Device A adds the tab or link). No API key, database or sign in is needed. Posts, votes, comments and hidden posts live in this browser's localStorage only, so a different phone or a private window starts fresh.
+
+**60-second demo path (on a phone):**
+1. Open Community. Point at the banner: it is a demo, and the posts are labelled "Example post".
+2. Tap **Top**, then the **Razors** chip.
+3. Open "Is there a cheaper alternative to the Venus 3 pack?" and tap **Check this with PinkCheck**. The same result card as Search appears inline (score 90, High, with sources).
+4. Go back, open the shaving gel post and check it too: it shows the "Good news" reverse gap, which makes the point that the app is fair.
+5. Tap **+ New post**, write a title, and try adding a price without a link to show the rule: no price without a source.
+
+**Rules kept:** seed prices and links are copied from `data/demo.json`; user prices show only with an https source link, labelled "shared by the poster, check the source"; Report only hides a post on this device; all text is rendered as plain text.
+
+**Files:** `app/community/**`, `components/community/**`, `lib/community/**`. To reset the demo, clear this site's data (key `pinkcheck.community.v1`).

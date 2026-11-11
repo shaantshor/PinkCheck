@@ -10,7 +10,7 @@ function Skeleton() {
   return (
     <div className="space-y-3" aria-hidden="true">
       {[0, 1, 2].map((i) => (
-        <div key={i} className="animate-pulse rounded-2xl border border-pink-100 p-4">
+        <div key={i} className="animate-pulse motion-reduce:animate-none rounded-2xl border border-pink-100 p-4">
           <div className="h-3 w-1/3 rounded bg-pink-100" />
           <div className="mt-3 h-4 w-5/6 rounded bg-gray-200" />
           <div className="mt-2 h-3 w-2/3 rounded bg-gray-100" />
@@ -77,7 +77,7 @@ export default function Feed({ onNewPost }: { onNewPost: () => void }) {
       </div>
 
       {/* Category chips: this row scrolls sideways, the page does not */}
-      <div className="-mx-4 mt-3 flex gap-2 overflow-x-auto px-4 pb-1" role="group" aria-label="Filter by category">
+      <div className="-mx-4 mt-3 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="group" aria-label="Filter by category">
         {(['All', ...CATEGORIES] as const).map((c) => (
           <button
             key={c}
