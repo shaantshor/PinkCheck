@@ -71,17 +71,32 @@ function build(
 }
 
 const usablePairs = pairs.filter((p) => p.products.filter(usable).length >= 2);
+const ALIASES: Record<string, string> = {
+  'disposable razors': 'razor razors shaver',
+  deodorant: 'deodorant deodorants antiperspirant anti-perspirant deo spray',
+  'shaving gel': 'shaving shave gel foam',
+  'body wash / shampoo': 'body wash shower gel shampoo bodywash',
+};
 const flat = usablePairs.flatMap((pair) =>
-  pair.products.filter(usable).map((product) => ({ pair, product })),
+  pair.products.filter(usable).map((product) => ({
+    pair,
+    product,
+    text: `${product.name} ${product.brand ?? ''} ${pair.category} ${ALIASES[pair.category] ?? ''}`.toLowerCase(),
+  })),
 );
 const fuse = new Fuse(flat, {
-  keys: ['product.name', 'product.brand'],
+  keys: ['text'],
   threshold: 0.4,
+  ignoreLocation: true,
   includeScore: true,
 });
+const STOP = new Set(['the', 'and', 'for', 'men', 'women', 'womens', 'mens', 'pack']);
 
 export function demoCompare(input: Product): Comparison | null {
-  const hit = fuse.search(input.name)[0];
+  const tokens = input.name.toLowerCase().split(/[^a-z0-9+]+/).filter((t) => t.length >= 3 && !STOP.has(t));
+  const hit = fuse
+    .search(input.name)
+    .find((h) => (h.score ?? 1) <= 0.15 || tokens.some((t) => h.item.text.includes(t)));
   if (!hit) return null;
   const { pair, product: matched } = hit.item;
   const good = pair.products.filter(usable).map(clean);
