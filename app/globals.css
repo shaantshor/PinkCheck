@@ -51,11 +51,18 @@ body {
 .anim-drift { animation: drift 9s ease-in-out infinite; }
 .anim-splash-out { animation: splash-out 0.45s ease forwards; }
 .anim-pulse-ring { animation: pulse-ring 1.8s ease-out infinite; }
+@keyframes scan {
+  0% { top: 10%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 88%; opacity: 0; }
+}
+.anim-scan { animation: scan 2.4s ease-in-out infinite; }
 .press { transition: transform 0.12s ease; }
 .press:active { transform: scale(0.97); }
 
 @media (prefers-reduced-motion: reduce) {
-  .anim-fade-up, .anim-pop, .anim-float, .anim-drift, .anim-pulse-ring { animation: none; }
+  .anim-fade-up, .anim-pop, .anim-float, .anim-drift, .anim-pulse-ring, .anim-scan { animation: none; }
   .anim-splash-out { animation-duration: 0.01s; }
   .press { transition: none; }
 }
