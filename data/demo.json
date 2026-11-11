@@ -1,0 +1,266 @@
+[
+  {
+    "pair_id": "razor-1",
+    "category": "disposable razors",
+    "products": [
+      {
+        "name": "",
+        "brand": "",
+        "retailer": "",
+        "price_gbp": null,
+        "quantity": null,
+        "unit": null,
+        "gender_target": null,
+        "source": "demo",
+        "source_url": "",
+        "checked_on": ""
+      },
+      {
+        "name": "",
+        "brand": "",
+        "retailer": "",
+        "price_gbp": null,
+        "quantity": null,
+        "unit": null,
+        "gender_target": null,
+        "source": "demo",
+        "source_url": "",
+        "checked_on": ""
+      }
+    ],
+    "equivalence": 0.9,
+    "equivalence_reasons": [],
+    "explanation": ""
+  },
+  {
+    "pair_id": "razor-2",
+    "category": "disposable razors",
+    "products": [
+      {
+        "name": "",
+        "brand": "",
+        "retailer": "",
+        "price_gbp": null,
+        "quantity": null,
+        "unit": null,
+        "gender_target": null,
+        "source": "demo",
+        "source_url": "",
+        "checked_on": ""
+      },
+      {
+        "name": "",
+        "brand": "",
+        "retailer": "",
+        "price_gbp": null,
+        "quantity": null,
+        "unit": null,
+        "gender_target": null,
+        "source": "demo",
+        "source_url": "",
+        "checked_on": ""
+      }
+    ],
+    "equivalence": 0.9,
+    "equivalence_reasons": [],
+    "explanation": ""
+  },
+  {
+    "pair_id": "deodorant-1",
+    "category": "deodorant",
+    "products": [
+      {
+        "name": "",
+        "brand": "",
+        "retailer": "",
+        "price_gbp": null,
+        "quantity": null,
+        "unit": null,
+        "gender_target": null,
+        "source": "demo",
+        "source_url": "",
+        "checked_on": ""
+      },
+      {
+        "name": "",
+        "brand": "",
+        "retailer": "",
+        "price_gbp": null,
+        "quantity": null,
+        "unit": null,
+        "gender_target": null,
+        "source": "demo",
+        "source_url": "",
+        "checked_on": ""
+      }
+    ],
+    "equivalence": 0.9,
+    "equivalence_reasons": [],
+    "explanation": ""
+  },
+  {
+    "pair_id": "deodorant-2",
+    "category": "deodorant",
+    "products": [
+      {
+        "name": "",
+        "brand": "",
+        "retailer": "",
+        "price_gbp": null,
+        "quantity": null,
+        "unit": null,
+        "gender_target": null,
+        "source": "demo",
+        "source_url": "",
+        "checked_on": ""
+      },
+      {
+        "name": "",
+        "brand": "",
+        "retailer": "",
+        "price_gbp": null,
+        "quantity": null,
+        "unit": null,
+        "gender_target": null,
+        "source": "demo",
+        "source_url": "",
+        "checked_on": ""
+      }
+    ],
+    "equivalence": 0.9,
+    "equivalence_reasons": [],
+    "explanation": ""
+  },
+  {
+    "pair_id": "shaving-gel-1",
+    "category": "shaving gel",
+    "products": [
+      {
+        "name": "",
+        "brand": "",
+        "retailer": "",
+        "price_gbp": null,
+        "quantity": null,
+        "unit": null,
+        "gender_target": null,
+        "source": "demo",
+        "source_url": "",
+        "checked_on": ""
+      },
+      {
+        "name": "",
+        "brand": "",
+        "retailer": "",
+        "price_gbp": null,
+        "quantity": null,
+        "unit": null,
+        "gender_target": null,
+        "source": "demo",
+        "source_url": "",
+        "checked_on": ""
+      }
+    ],
+    "equivalence": 0.9,
+    "equivalence_reasons": [],
+    "explanation": ""
+  },
+  {
+    "pair_id": "shaving-gel-2",
+    "category": "shaving gel",
+    "products": [
+      {
+        "name": "",
+        "brand": "",
+        "retailer": "",
+        "price_gbp": null,
+        "quantity": null,
+        "unit": null,
+        "gender_target": null,
+        "source": "demo",
+        "source_url": "",
+        "checked_on": ""
+      },
+      {
+        "name": "",
+        "brand": "",
+        "retailer": "",
+        "price_gbp": null,
+        "quantity": null,
+        "unit": null,
+        "gender_target": null,
+        "source": "demo",
+        "source_url": "",
+        "checked_on": ""
+      }
+    ],
+    "equivalence": 0.9,
+    "equivalence_reasons": [],
+    "explanation": ""
+  },
+  {
+    "pair_id": "body-wash-1",
+    "category": "body wash / shampoo",
+    "products": [
+      {
+        "name": "",
+        "brand": "",
+        "retailer": "",
+        "price_gbp": null,
+        "quantity": null,
+        "unit": null,
+        "gender_target": null,
+        "source": "demo",
+        "source_url": "",
+        "checked_on": ""
+      },
+      {
+        "name": "",
+        "brand": "",
+        "retailer": "",
+        "price_gbp": null,
+        "quantity": null,
+        "unit": null,
+        "gender_target": null,
+        "source": "demo",
+        "source_url": "",
+        "checked_on": ""
+      }
+    ],
+    "equivalence": 0.9,
+    "equivalence_reasons": [],
+    "explanation": ""
+  },
+  {
+    "pair_id": "body-wash-2",
+    "category": "body wash / shampoo",
+    "products": [
+      {
+        "name": "",
+        "brand": "",
+        "retailer": "",
+        "price_gbp": null,
+        "quantity": null,
+        "unit": null,
+        "gender_target": null,
+        "source": "demo",
+        "source_url": "",
+        "checked_on": ""
+      },
+      {
+        "name": "",
+        "brand": "",
+        "retailer": "",
+        "price_gbp": null,
+        "quantity": null,
+        "unit": null,
+        "gender_target": null,
+        "source": "demo",
+        "source_url": "",
+        "checked_on": ""
+      }
+    ],
+    "equivalence": 0.9,
+    "equivalence_reasons": [],
+    "explanation": ""
+  }
+]
