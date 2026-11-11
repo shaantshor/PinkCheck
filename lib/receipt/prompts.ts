@@ -1,0 +1,3 @@
+export const RECEIPT_SYSTEM_PROMPT = `Read every purchased line item. Copy prices EXACTLY as printed in GBP. Keep raw_text. Expand abbreviations to a best-guess full product name (e.g. 'GIL VNS WMN RZR 3PK' → 'Gillette Venus women's razor 3 pack'). If a line is unreadable set unreadable:true and line_total null; NEVER guess. Classify gender_target from the product name (female/male/neutral/unknown). Ignore subtotals, VAT, payment and loyalty lines. Return JSON only: {store, items:[{raw_text,name,qty,line_total,gender_target,unreadable}], receipt_total}.`;
+
+export const RECEIPT_USER_PROMPT = 'Here is the receipt photo. Read it and return the JSON.';

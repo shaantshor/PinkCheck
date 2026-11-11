@@ -1,4 +1,4 @@
-# Architecture (Architect: Winston)
+﻿# Architecture (Architect: Winston)
 
 ## File ownership
 | Path | Owner |
@@ -37,3 +37,7 @@ Implemented in /api/compare per step 1 above.
 - Import `components/ResultCard` (props `{ comparison, compact? }`, unchanged). Call POST /api/compare with `source: 'receipt'` products.
 - Please confirm the reconstructed ReceiptItem tail in CHANGELOG-contract.md.
 - Put CallItOut in components/extras/CallItOut.tsx (A renders it under High results in A-8).
+
+## Requests to Device A
+- (resolved by A in 0bd03fe) globals.css dark mode.
+- Receipt page: sample receipt is built from data/demo.json in lib/receipt/sample.ts (no image needed).
