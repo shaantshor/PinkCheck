@@ -20,7 +20,7 @@ export async function POST(req: Request) {
   try {
     const { image } = (await req.json()) as { image: string };
     if (!image) return NextResponse.json({ error: 'No image received.' });
-    if (!process.env.ANTHROPIC_API_KEY) return NextResponse.json({ error: 'Scanning is not set up yet.' });
+    if (!process.env.ANTHROPIC_API_KEY) return NextResponse.json({ error: 'Scanning needs live AI, which is not switched on in this demo. Type the product name on the Search tab instead.' });
 
     let text = '';
     for (let attempt = 0; attempt < 2; attempt++) {

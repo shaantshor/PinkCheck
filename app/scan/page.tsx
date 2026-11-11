@@ -49,7 +49,7 @@ export default function ScanPage() {
       });
       const data = await res.json();
       if (data.error || !data.product) {
-        setError(`${data.error ?? "We couldn't read that."} Try another photo, or type the product name on the Search tab.`);
+        setError(String(data.error ?? "We couldn't read that.").includes('Search tab') ? data.error : `${data.error ?? "We couldn't read that."} Try another photo, or type the product name on the Search tab.`);
         setProduct(null);
       } else {
         setProduct(data.product);

@@ -4,99 +4,111 @@
     "category": "disposable razors",
     "products": [
       {
-        "name": "",
-        "brand": "",
-        "retailer": "",
-        "price_gbp": null,
-        "quantity": null,
-        "unit": null,
-        "gender_target": null,
+        "name": "Venus Smooth Sensitive Disposable Razors 3 pack",
+        "brand": "Gillette Venus",
+        "retailer": "Superdrug",
+        "price_gbp": 4.99,
+        "quantity": 3,
+        "unit": "item",
+        "gender_target": "female",
         "source": "demo",
-        "source_url": "",
-        "checked_on": ""
+        "source_url": "https://www.superdrug.com/toiletries/female-hair-removal/female-disposable-razors/venus-smooth-sensitive-dispo-3pk/p/797314",
+        "checked_on": "2026-11-11"
       },
       {
-        "name": "",
-        "brand": "",
-        "retailer": "",
-        "price_gbp": null,
-        "quantity": null,
-        "unit": null,
-        "gender_target": null,
+        "name": "Gillette Blue3 Disposable Razors x12",
+        "brand": "Gillette",
+        "retailer": "Superdrug",
+        "price_gbp": 6.99,
+        "quantity": 12,
+        "unit": "item",
+        "gender_target": "male",
         "source": "demo",
-        "source_url": "",
-        "checked_on": ""
+        "source_url": "https://www.superdrug.com/mens/shaving/mens-disposable-razors/gillette-blue3-disposable-mens-razors-x12/p/842762",
+        "checked_on": "2026-11-11"
       }
     ],
     "equivalence": 0.9,
-    "equivalence_reasons": [],
-    "explanation": ""
+    "equivalence_reasons": [
+      "Same 3 blades",
+      "Same brand",
+      "Disposable razors"
+    ],
+    "explanation": "You may be paying more for the women's pack. It works out at about £1.66 per razor, against about 58p for the men's pack. The Venus price is already on offer, down from £7.49. Both are three blade disposables from Gillette, though the packs are different sizes."
   },
   {
     "pair_id": "razor-2",
     "category": "disposable razors",
     "products": [
       {
-        "name": "",
-        "brand": "",
-        "retailer": "",
-        "price_gbp": null,
-        "quantity": null,
-        "unit": null,
-        "gender_target": null,
+        "name": "Venus Simply Disposable Razors x4",
+        "brand": "Gillette Venus",
+        "retailer": "Superdrug",
+        "price_gbp": 3.32,
+        "quantity": 4,
+        "unit": "item",
+        "gender_target": "female",
         "source": "demo",
-        "source_url": "",
-        "checked_on": ""
+        "source_url": "https://www.superdrug.com/toiletries/female-hair-removal/female-disposable-razors/venus-simply-disposable-razors-x4/p/755875",
+        "checked_on": "2026-11-11"
       },
       {
-        "name": "",
-        "brand": "",
-        "retailer": "",
-        "price_gbp": null,
-        "quantity": null,
-        "unit": null,
-        "gender_target": null,
+        "name": "Gillette Blue 3 Smooth Men's Disposable Razors x4",
+        "brand": "Gillette",
+        "retailer": "Superdrug",
+        "price_gbp": 3.45,
+        "quantity": 4,
+        "unit": "item",
+        "gender_target": "male",
         "source": "demo",
-        "source_url": "",
-        "checked_on": ""
+        "source_url": "https://www.superdrug.com/mens/shaving/mens-disposable-razors/gillette-blue-3-smooth-mens-disposable-razors-x4/p/779235",
+        "checked_on": "2026-11-11"
       }
     ],
     "equivalence": 0.9,
-    "equivalence_reasons": [],
-    "explanation": ""
+    "equivalence_reasons": [
+      "Same 4 razor pack",
+      "Same brand",
+      "Disposable razors"
+    ],
+    "explanation": "Good news: the women's pack is slightly cheaper here, at about 83p per razor against about 86p. The Venus price is on offer at the moment, down from £4.99, so the gap may change when the offer ends."
   },
   {
     "pair_id": "deodorant-1",
     "category": "deodorant",
     "products": [
       {
-        "name": "",
-        "brand": "",
-        "retailer": "",
-        "price_gbp": null,
-        "quantity": null,
-        "unit": null,
-        "gender_target": null,
+        "name": "Dove Advanced Care Original Anti-Perspirant Aerosol 150 ml",
+        "brand": "Dove",
+        "retailer": "Superdrug",
+        "price_gbp": 3.5,
+        "quantity": 150,
+        "unit": "ml",
+        "gender_target": "female",
         "source": "demo",
-        "source_url": "",
-        "checked_on": ""
+        "source_url": "https://www.superdrug.com/toiletries/deodorants/womens-deodorant/womens-aerosol-deodorants/dove-advanced-care-original-anti-perspirant-aerosol-150-ml/p/828884",
+        "checked_on": "2026-11-11"
       },
       {
-        "name": "",
-        "brand": "",
-        "retailer": "",
-        "price_gbp": null,
-        "quantity": null,
-        "unit": null,
-        "gender_target": null,
+        "name": "Dove Men+Care Advanced Extra Fresh Anti-Perspirant Aerosol 150 ml",
+        "brand": "Dove",
+        "retailer": "Superdrug",
+        "price_gbp": 3.5,
+        "quantity": 150,
+        "unit": "ml",
+        "gender_target": "male",
         "source": "demo",
-        "source_url": "",
-        "checked_on": ""
+        "source_url": "https://www.superdrug.com/toiletries/mens-deodorants/mens-aerosol-deodorants/dove-mencare-advanced-extra-fresh-anti-perspirant-aerosol-150-ml/p/829489",
+        "checked_on": "2026-11-11"
       }
     ],
     "equivalence": 0.9,
-    "equivalence_reasons": [],
-    "explanation": ""
+    "equivalence_reasons": [
+      "Same 150 ml",
+      "Same brand",
+      "Anti-perspirant aerosol"
+    ],
+    "explanation": "No price gap here. Both Dove anti-perspirant sprays cost £3.50 for 150 ml at Superdrug, so you are not paying extra for the women's version."
   },
   {
     "pair_id": "deodorant-2",
@@ -136,33 +148,37 @@
     "category": "shaving gel",
     "products": [
       {
-        "name": "",
-        "brand": "",
-        "retailer": "",
-        "price_gbp": null,
-        "quantity": null,
-        "unit": null,
-        "gender_target": null,
+        "name": "Venus Satin Care Shaving Gel Sensitive Aloe Vera Glide 200ml",
+        "brand": "Gillette Venus",
+        "retailer": "Superdrug",
+        "price_gbp": 2.99,
+        "quantity": 200,
+        "unit": "ml",
+        "gender_target": "female",
         "source": "demo",
-        "source_url": "",
-        "checked_on": ""
+        "source_url": "https://www.superdrug.com/toiletries/female-hair-removal/shaving-gels/venus-satin-care-shaving-gel-sensitive-aloe-vera-glide-200ml/p/340711",
+        "checked_on": "2026-11-11"
       },
       {
-        "name": "",
-        "brand": "",
-        "retailer": "",
-        "price_gbp": null,
-        "quantity": null,
-        "unit": null,
-        "gender_target": null,
+        "name": "Gillette Fusion5 Sensitive Shaving Gel 200ml",
+        "brand": "Gillette",
+        "retailer": "Superdrug",
+        "price_gbp": 3.3,
+        "quantity": 200,
+        "unit": "ml",
+        "gender_target": "male",
         "source": "demo",
-        "source_url": "",
-        "checked_on": ""
+        "source_url": "https://www.superdrug.com/mens/shaving/shaving-foam-gels/gillette-fusion5-sensitive-shaving-gel-200ml/p/758832",
+        "checked_on": "2026-11-11"
       }
     ],
-    "equivalence": 0.9,
-    "equivalence_reasons": [],
-    "explanation": ""
+    "equivalence": 0.8,
+    "equivalence_reasons": [
+      "Same 200 ml",
+      "Same brand",
+      "Sensitive skin gel"
+    ],
+    "explanation": "Good news: the women's gel is cheaper here, at £14.95 per litre against £16.50 for the men's gel. Both are 200 ml sensitive skin shaving gels from Gillette."
   },
   {
     "pair_id": "shaving-gel-2",
@@ -202,33 +218,37 @@
     "category": "body wash / shampoo",
     "products": [
       {
-        "name": "",
-        "brand": "",
-        "retailer": "",
-        "price_gbp": null,
-        "quantity": null,
-        "unit": null,
-        "gender_target": null,
+        "name": "Dove Nourishing Body Wash 450 ml",
+        "brand": "Dove",
+        "retailer": "Superdrug",
+        "price_gbp": 4.49,
+        "quantity": 450,
+        "unit": "ml",
+        "gender_target": "unknown",
         "source": "demo",
-        "source_url": "",
-        "checked_on": ""
+        "source_url": "https://www.superdrug.com/toiletries/washing-bathing/shower-gels-body-wash/dove-nourishing-body-wash-450-ml/p/839709",
+        "checked_on": "2026-11-11"
       },
       {
-        "name": "",
-        "brand": "",
-        "retailer": "",
-        "price_gbp": null,
-        "quantity": null,
-        "unit": null,
-        "gender_target": null,
+        "name": "Dove Men+Care Refreshing Extra Fresh 3in1 Hair, Face & Body Wash 400ml",
+        "brand": "Dove",
+        "retailer": "Superdrug",
+        "price_gbp": 3.99,
+        "quantity": 400,
+        "unit": "ml",
+        "gender_target": "male",
         "source": "demo",
-        "source_url": "",
-        "checked_on": ""
+        "source_url": "https://www.superdrug.com/mens/shower/mens-shower-gels-body-wash/dove-mencare-refreshing-extra-fresh-3in1-hair-face-body-wash-400ml/p/872759",
+        "checked_on": "2026-11-11"
       }
     ],
-    "equivalence": 0.9,
-    "equivalence_reasons": [],
-    "explanation": ""
+    "equivalence": 0.8,
+    "equivalence_reasons": [
+      "Same brand",
+      "Body wash",
+      "Different pack sizes"
+    ],
+    "explanation": "No meaningful gap per ml. The 450 ml bottle costs £4.49 and the 400 ml men's bottle costs £3.99, and both come to about £9.98 per litre. The men's one is also marketed for hair and face, so it is not an exact match."
   },
   {
     "pair_id": "body-wash-2",

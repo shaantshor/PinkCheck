@@ -6,7 +6,7 @@ import ResultCard from '@/components/ResultCard';
 import Loading from '@/components/Loading';
 
 const chips: string[] = (demo as { products: { name: string }[] }[])
-  .flatMap((pair) => pair.products.map((p) => p.name))
+  .map((pair) => pair.products[0]?.name)
   .filter(Boolean)
   .slice(0, 6);
 
